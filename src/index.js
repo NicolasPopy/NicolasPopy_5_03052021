@@ -1,3 +1,6 @@
+import "./style.scss";
+
+
 fetch("http://localhost:3000/api/cameras")
 .then(function(res) {
     if (res.ok) {
@@ -6,7 +9,7 @@ fetch("http://localhost:3000/api/cameras")
 })
 .then(function(value) {
     for (let prop in value) {
-        createLigne(value[prop])
+        createArticle(value[prop])
     };
     console.log(document)
     
@@ -16,58 +19,39 @@ fetch("http://localhost:3000/api/cameras")
 });
 
 
-function createLigne(article){
+function createArticle(article){
     try{
-        var lig = document.createElement("div")
-        lig.classList.add("row");
-        var colid = createColonne(article._id);
-        lig.appendChild(colid);
-        var colname = createColonne(article.name);
-        lig.appendChild(colname);
-        var colprice = createColonne(article.price);
-        lig.appendChild(colprice);
-        var colimg = createColonneImage(article.imageUrl);
-        lig.appendChild(colimg);
+        
 
-        var h1 = document.getElementsByTagName("h1")[0];
+        var card = document.createElement("div");
+        card.classList.add("card");
+        card.setAttribute("width","0.5 vw");
+        
 
-        document.body.insertBefore(lig,h1)
+        var card_img = document.createElement("img");
+        card_img.src = article.imageUrl;
+
+        card.appendChild(card_img)
+
+        var card_body = document.createElement("div");
+        card_body.classList.add("card-body")
+        
+
+    
+        var card_title = document.createElement("h1");
+        card_title.innerHTML = article.name;
+        card_body.appendChild(card_title);
+
+        var card_desc = document.createElement("p");
+        card_desc.innerHTML = article.description;
+        card_body.appendChild(card_desc);
+
+        card.appendChild(card_body);       
+
+        var carddeck = document.getElementsByClassName("card-deck")[0];
+
+        carddeck.appendChild(card)
 }
 catch(ex) {console.log(ex);}
 }
 
-function createColonne(donnee){
-    try{
-        var col = document.createElement("div");
-        col.classList.add("col");
-
-        var newContent = document.createTextNode(donnee);
-        col.appendChild(newContent);
-
-        return col;
-    }
-    catch(ex) {console.log(ex);}
-}
-
-function createColonneImage(donnee){
-    try{
-        var col = document.createElement("div");
-        col.classList.add("col");
-
-        var newContent = createImg(donnee,'image');
-        col.appendChild(newContent);
-
-        return col;
-    }
-    catch(ex) {console.log(ex);}
-}
-
-
-function createImg(src, alt) {
-    var img = document.createElement('img');
-    img.src = src;
-    img.setAttribute("width","40%");
-    if ( alt != null ) img.alt = alt;
-
-    return img;
-}

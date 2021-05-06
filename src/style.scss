@@ -1,0 +1,19 @@
+.card-deck{
+    width:50%;
+    height: auto;
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:start;
+    align-items:center;
+    }
+
+    .card{
+        width:15vw;
+        height:25vw;
+        margin-bottom: 2rem;
+
+        & img{
+            width:100%;
+        }
+    }
