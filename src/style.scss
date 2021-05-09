@@ -1,3 +1,31 @@
+#Logo_Orinoco{
+    object-fit:cover;
+     height:75px;
+     margin:0 auto;padding:0;
+}
+
+
+.Header_fond{    
+    width:100%;
+    background-image:url('Images/header_background.jpg') ;
+    background-attachment: fixed;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:20vw;
+}
+
+footer{
+    background-color: rgb(138, 138, 138);
+    width:100%;
+}
+
+
+
+
+
 .card-deck{
     width:50%;
     height: auto;
