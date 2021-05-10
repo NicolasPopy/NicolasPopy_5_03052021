@@ -1,6 +1,6 @@
 #Logo_Orinoco{
     object-fit:cover;
-     height:75px;
+     height:65px;
      margin:0 auto;padding:0;
 }
 
@@ -14,34 +14,28 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    height:20vw;
+    height:16vw;
 }
 
-footer{
+/* footer{
     background-color: rgb(138, 138, 138);
     width:100%;
+} */
+
+#grille_produits{
+$grid-gutter-width: 10.5rem;
 }
 
+.card{
+    margin-bottom: 2rem;
 
-
-
-
-.card-deck{
-    width:50%;
-    height: auto;
-    display:flex;
-    flex-direction:row;
-    flex-wrap: wrap;
-    justify-content:start;
-    align-items:center;
+    & h2{
+        font-size: 1rem;
     }
 
-    .card{
-        width:15vw;
-        height:25vw;
-        margin-bottom: 2rem;
-
-        & img{
-            width:100%;
-        }
+    & p{
+        font-size: 0.8rem;
     }
+
+    
+}

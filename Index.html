@@ -32,16 +32,28 @@
       
       </div>
     </header>
-    
-    <div class="card-deck">
+    <main class="mt-5 container-fluid">
+      <div class="row">
+        <div class="col-2">
+          <h2>FILTRES</h2>
+          <select >
+            <option value="Zurss">Zurss</option>
+            <option value="Hirsch">Hirsch</option>
+            <option value="Franck">Franck</option>
+            <option value="Kuros">Kuros</option>
+            <option value="Katatone">Katatone</option>
+          </select>
+          <label for="customRange2" class="form-label">Prix</label>
+          <input type="range" class="form-range" min="0" max="500000" id="customRange2">
+        </div>
+        <div class="container-fluid row row-cols-4 col-10 g-0" id="grille_produits"></div>
+      </div>
+    </main>
 
-    </div>
-
-
-    <footer>
-      <a href="#">Conditions générales de vente</a>
-      <a href="#">Qui sommes nous ?</a>
-      <a href="#">Nous contacter</a>
+    <footer class="py-5 white bg-secondary text-center ">
+      <a href="#" class="text-white mx-2">Conditions générales de vente</a>
+      <a href="#" class="text-white mx-2">Qui sommes nous ?</a>
+      <a href="#" class="text-white mx-2">Nous contacter</a>
     </footer>
 
 

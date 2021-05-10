@@ -3,7 +3,8 @@ const path = require('path');
 module.exports = {
     mode: "production",
     entry: {
-        app: "./src/index.js"
+        app: "./src/index.js",
+        produit: "./src/produit.js",
     },
     output: {
         filename: "[name].bundle.js",
@@ -15,11 +16,11 @@ module.exports = {
             {   test: /\.s[ac]ss$/i,
                 use: [
                   // Creates `style` nodes from JS strings
-                  "style-loader",
+                    "style-loader",
                   // Translates CSS into CommonJS
-                  "css-loader",
+                    "css-loader",
                   // Compiles Sass to CSS
-                  "sass-loader",
+                    "sass-loader",
                 ],
             },
             {   
@@ -28,7 +29,6 @@ module.exports = {
                 loader: 'file-loader'
                 }]
             }
-           
             
         ]
     }
