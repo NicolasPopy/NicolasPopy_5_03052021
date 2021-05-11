@@ -7,7 +7,7 @@
 
 .Header_fond{    
     width:100%;
-    background-image:url('Images/header_background.jpg') ;
+    background-image:url('../Images/header_background.jpg') ;
     background-attachment: fixed;
     background-position: center;
     -webkit-background-size: cover;
@@ -17,25 +17,4 @@
     height:16vw;
 }
 
-/* footer{
-    background-color: rgb(138, 138, 138);
-    width:100%;
-} */
 
-#grille_produits{
-$grid-gutter-width: 10.5rem;
-}
-
-.card{
-    margin-bottom: 2rem;
-
-    & h2{
-        font-size: 1rem;
-    }
-
-    & p{
-        font-size: 0.8rem;
-    }
-
-    
-}

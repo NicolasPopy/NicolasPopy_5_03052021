@@ -1,0 +1,17 @@
+#grille_produits{
+    $grid-gutter-width: 10.5rem;
+    }
+    
+    .card{
+        margin-bottom: 2rem;
+    
+        & h2{
+            font-size: 1rem;
+        }
+    
+        & p{
+            font-size: 0.8rem;
+        }
+    
+        
+    }

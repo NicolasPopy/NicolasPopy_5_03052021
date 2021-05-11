@@ -16,11 +16,38 @@
   </head>
   <body>
 
-    <main>
+    <header>
+      <nav class="m-0 p-0 navbar navbar-light bg-light justify-content-between ">
+        <a class="navbar-brand"><img src="./src/Images/logo_orinoco.png" id="Logo_Orinoco" /></a>
+        <div class="row">
+          <div class="col-8">
+            <input class="form-control my-2 mr-3" type="Recherche" placeholder="Recherche" aria-label="Recherche">
+          </div>
+          <div class="col-4">
+            <button class="btn btn-outline-success px-2 my-2 " type="submit">Recherche</button>
+          </div>
+        </div>
+      </nav>
+      <div class="Header_fond">
+      
+      </div>
+    </header>
+    <div id="content" class="d-flex flex-row">
+      <main class="w-75 my-5">
+        <div id="photo"><img></img></div>   
 
+        <div id="titre"><h1 class="text-center"></h1></div>
+        <div id="description"><p class="p-3"></p></div>
+        <div id="option"><select class="form-select" aria-label="Personnalisation"></select></div>
+        <div id="prix"><strong></strong></div>        
+        
+        <div id="bouton"><buton></buton></div>
 
-    </main>
-
+      </main>
+      <aside id="panier" class="w-25 my-5 mx-3 text-center bg-primary">
+        <h2>PANIER</h2>
+      </aside>
+    </div>
 
 
     <footer class="py-5 white bg-secondary text-center ">

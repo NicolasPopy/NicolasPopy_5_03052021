@@ -1,5 +1,5 @@
-import "./style.scss";
-
+import "./css/main.scss";
+import "./css/index.scss";
 
 fetch("http://localhost:3000/api/cameras")
 .then(function(res) {
@@ -28,7 +28,7 @@ function createArticle(article){
         link.classList.add("stretched-link");
 
         //Création de la carte
-        var card = document.createElement("div");
+        var card = document.createElement("article");
         card.classList.add("card","col","mx-4");
 
         card.appendChild(link);
