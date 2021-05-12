@@ -1,5 +1,5 @@
-import "./css/main.scss";
-import "./css/index.scss";
+import "../css/main.scss";
+import "../css/index.scss";
 
 fetch("http://localhost:3000/api/cameras")
 .then(function(res) {
@@ -59,7 +59,7 @@ function createArticle(article){
         //Création du prix de la card
         var card_prix = document.createElement("div");
         card_prix.classList.add("card-footer","fw-bold");
-        card_prix.innerHTML = article.price + " €";
+        card_prix.innerHTML = article.price/100 + " €";
         
 
         //Ajout de la card dans card-deck

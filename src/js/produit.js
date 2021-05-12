@@ -1,5 +1,6 @@
-import "./css/main.scss";
-import "./css/produit.scss";
+import "../css/main.scss";
+import "../css/produit.scss";
+import * as monPanier from "./panier.js";
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -26,9 +27,8 @@ fetch("http://localhost:3000/api/cameras/" + id)
 });
 
 function loadpanier() {
-    var panier = JSON.parse(localStorage.getItem('panier')); 
+    var panier = monPanier.chargerPanier(); 
     
-    console.log(panierliste);
     for (let prod in panier) {
         ajouterlipanier(panier[prod].name);
     }
@@ -54,7 +54,7 @@ function afficheProduit(prod){
       //Affiche prix
       var prix = document.getElementById("prix");
       var strong = prix.getElementsByTagName("strong")[0];
-      strong.innerHTML = prod.price + " €";
+      strong.innerHTML = prod.price/100 + " €";
 
       //Affiche image
       var photo = document.getElementById("photo");
@@ -81,8 +81,6 @@ function afficheProduit(prod){
       btn.onclick=ajouterPanier;
 
 
-
-
     }catch(ex)
     {
         console.error(ex);
@@ -92,15 +90,7 @@ function afficheProduit(prod){
 
 
 function ajouterPanier(){ 
-    let panier= new Array(0);
-
-    if(localStorage.getItem('panier')!=null)
-    {
-        panier = JSON.parse(localStorage.getItem('panier')); 
-    }
-
-    panier.push(produit);
-    localStorage.setItem('panier', JSON.stringify(panier));
+    monPanier.ajouterElementPanier(produit, true);
 
     ajouterlipanier(produit.name);
 
