@@ -4,6 +4,7 @@ import "./css/produit.scss";
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const id = urlParams.get('id');
+var produit ;
 
 
 
@@ -14,12 +15,33 @@ fetch("http://localhost:3000/api/cameras/" + id)
     }
 })
 .then(function(value) {
+
+    produit = value;
     afficheProduit(value);
+    loadpanier();
     
 })
 .catch(function(err) {
     // Une erreur est survenue
 });
+
+function loadpanier() {
+    var panier = JSON.parse(localStorage.getItem('panier')); 
+    
+    console.log(panierliste);
+    for (let prod in panier) {
+        ajouterlipanier(panier[prod].name);
+    }
+}
+
+function ajouterlipanier(nameprod){
+    var panierliste = document.getElementById("panierliste");
+    var liproduit = document.createElement("li");
+
+    liproduit.innerHTML = nameprod;
+    panierliste.appendChild(liproduit);
+}
+
 
 
 function afficheProduit(prod){ 
@@ -46,18 +68,40 @@ function afficheProduit(prod){
 
       //Affiche Option
       var option = document.getElementsByClassName("form-select")[0];
-
-      console.log(prod);
       for (let opt in prod.lenses) {
          var optionselect = document.createElement("option");
          optionselect.value = prod.lenses[opt];
          optionselect.innerHTML = prod.lenses[opt];
          option.appendChild(optionselect);
-        console.log(prod.lenses[opt]);
       }
+
+      //Affiche bouton
+      var btn = document.getElementsByClassName("btn-panier")[0];
+
+      btn.onclick=ajouterPanier;
+
+
+
+
     }catch(ex)
     {
         console.error(ex);
     }
     return
+}
+
+
+function ajouterPanier(){ 
+    let panier= new Array(0);
+
+    if(localStorage.getItem('panier')!=null)
+    {
+        panier = JSON.parse(localStorage.getItem('panier')); 
+    }
+
+    panier.push(produit);
+    localStorage.setItem('panier', JSON.stringify(panier));
+
+    ajouterlipanier(produit.name);
+
 }
