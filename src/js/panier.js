@@ -1,4 +1,4 @@
-export function chargerPanier()
+export async function chargerPanier()
 {
     if(localStorage.getItem('panier') != null)
     {

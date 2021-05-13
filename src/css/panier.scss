@@ -1,0 +1,43 @@
+.card-horizontal{
+    display:grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "photo titre prix";
+
+
+    & img
+    {
+        grid-area: photo;
+    }
+
+    & h2
+    {
+        grid-area: titre;
+    }
+    & strong {
+        grid-area: prix;
+    }
+}
+
+#ligneTotal{
+    display:grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "labelTotal Total";
+
+    & div{
+        border:1px solid black;
+    }
+
+    & strong{
+        border:1px solid black;
+    }
+
+    & .labelTotal{
+        grid-area:labelTotal;
+    }
+
+    & #Total{
+        grid-area: Total;
+    }
+}

@@ -1,27 +1,37 @@
 import "../css/main.scss";
 import "../css/index.scss";
 
-fetch("http://localhost:3000/api/cameras")
-.then(function(res) {
-    if (res.ok) {
-    return res.json();
-    }
-})
-.then(function(value) {
-    for (let prop in value) {
-        createArticle(value[prop])
-    };
-    console.log(document)
-    
-})
-.catch(function(err) {
-    // Une erreur est survenue
-});
+
+
+
+window.onload = function() {
+    fetch("http://localhost:3000/api/cameras")
+    .then(function(res) {
+        if (res.ok) {
+        return res.json();
+        }
+    })
+    .then(function(value) {
+        for (let prop in value) {
+            createArticle(value[prop])
+        };
+        console.log(document)
+        
+    })
+    .catch(function(err) {
+        // Une erreur est survenue
+    });
+};
+
+
+//**********************
+// Création card produit
+//**********************
+
 
 
 function createArticle(article){
     try{
-
         //Création du lien
         var link=document.createElement("a")
         link.setAttribute("href","produit.html?id=" + article._id)

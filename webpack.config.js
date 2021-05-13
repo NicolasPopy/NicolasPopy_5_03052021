@@ -5,6 +5,7 @@ module.exports = {
     entry: {
         app: "./src/js/index.js",
         produit: "./src/js/produit.js",
+        validation: "./src/js/validation.js"
     },
     output: {
         filename: "[name].bundle.js",

@@ -9,6 +9,13 @@ var produit ;
 
 
 
+
+
+//************************
+// Affiche détail produit 
+//************************
+
+
 fetch("http://localhost:3000/api/cameras/" + id)
 .then(function(res) {
     if (res.ok) {        
@@ -25,23 +32,6 @@ fetch("http://localhost:3000/api/cameras/" + id)
 .catch(function(err) {
     // Une erreur est survenue
 });
-
-function loadpanier() {
-    var panier = monPanier.chargerPanier(); 
-    
-    for (let prod in panier) {
-        ajouterlipanier(panier[prod].name);
-    }
-}
-
-function ajouterlipanier(nameprod){
-    var panierliste = document.getElementById("panierliste");
-    var liproduit = document.createElement("li");
-
-    liproduit.innerHTML = nameprod;
-    panierliste.appendChild(liproduit);
-}
-
 
 
 function afficheProduit(prod){ 
@@ -77,9 +67,7 @@ function afficheProduit(prod){
 
       //Affiche bouton
       var btn = document.getElementsByClassName("btn-panier")[0];
-
       btn.onclick=ajouterPanier;
-
 
     }catch(ex)
     {
@@ -89,9 +77,29 @@ function afficheProduit(prod){
 }
 
 
+// *************
+// Panier Aside
+//**************
+
+
+function loadpanier() {
+  var panier = monPanier.chargerPanier();
+
+  for (let prod in panier) {
+    ajouterlipanier(panier[prod].name);
+  }
+}
+
 function ajouterPanier(){ 
     monPanier.ajouterElementPanier(produit, true);
-
     ajouterlipanier(produit.name);
+}
 
+
+function ajouterlipanier(nameprod) {
+  var panierliste = document.getElementById("panierliste");
+  var liproduit = document.createElement("li");
+
+  liproduit.innerHTML = nameprod;
+  panierliste.appendChild(liproduit);
 }
