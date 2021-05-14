@@ -6,6 +6,7 @@ export async function chargerPanier()
     }
     else
     {
+      
         return new Array(0);
     }
 }
@@ -16,12 +17,17 @@ function sauverPanier(panier)
     localStorage.setItem("panier", JSON.stringify(panier));
 }
 
-export  function ajouterElementPanier(element, doublon) {
-  var panier = chargerPanier();
+export  function ajouterElementPanier(element) {
+   chargerPanier().then((res)=>{
 
-  if (doublon || (doublon == false && panier.exists(element) == false)) {
-    // si on autorise les doublons, on ajoute tout le temps ou si on n'autorise pas les doublons mais que l'élément n'est pas dans le panier, on ajoute.
-    panier.push(element);
-    sauverPanier(panier);
-  }
+    
+      res.push(element);
+      sauverPanier(res);
+  });
+}
+
+export function viderPanier()
+{
+  localStorage.clear();
+
 }

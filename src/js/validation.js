@@ -7,10 +7,29 @@ import * as monPanier from "./panier.js";
 var total = 0;
 
 window.onload = function() {
-    var panier = monPanier.chargerPanier().then(function(res) {
-        for (let article in res) {
-        createCardProduit(res[article]);
-        };
+     monPanier.chargerPanier().then(function(res) {
+
+        var tabdedouble = [];
+
+        for(var element in res){
+            console.log(element) ;
+            if (
+              tabdedouble.filter((e) => e._id === res[element]._id).length > 0
+            ) {
+              res[element].qte += 1;
+            } else {
+              res[element].qte = 1;
+            }
+             tabdedouble.push(res[element]);
+        }
+    
+        console.log(tabdedouble.length);
+        if(tabdedouble.length >0)
+        {
+            for (let article in tabdedouble) {
+            createCardProduit(tabdedouble[article]);
+            };
+        }
 
         creerTotal();
         
@@ -54,7 +73,7 @@ function createCardProduit(article)
     //footer
     var cardfooter = document.createElement("div");
     cardfooter.classList.add("card-footer");
-    cardfooter.innerHTML = article.price/100 + ",00 €";
+    cardfooter.innerHTML = article.qte + " X " + article.price/100 + ",00 €";
 
     total += article.price;
     

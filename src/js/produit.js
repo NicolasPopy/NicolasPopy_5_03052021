@@ -69,6 +69,9 @@ function afficheProduit(prod){
       var btn = document.getElementsByClassName("btn-panier")[0];
       btn.onclick=ajouterPanier;
 
+        var btn = document.getElementsByClassName("btn-viderpanier")[0];
+        btn.onclick = viderPanier;
+
     }catch(ex)
     {
         console.error(ex);
@@ -83,16 +86,22 @@ function afficheProduit(prod){
 
 
 function loadpanier() {
-  var panier = monPanier.chargerPanier();
-
-  for (let prod in panier) {
-    ajouterlipanier(panier[prod].name);
-  }
+  var panier = monPanier.chargerPanier().then(()=>{
+    for (let prod in panier) {
+      ajouterlipanier(panier[prod].name);
+    }
+  });
 }
 
 function ajouterPanier(){ 
     monPanier.ajouterElementPanier(produit, true);
     ajouterlipanier(produit.name);
+}
+
+function viderPanier(){ 
+  monPanier.viderPanier();
+
+
 }
 
 
