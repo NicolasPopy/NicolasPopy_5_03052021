@@ -12,18 +12,22 @@ window.onload = function() {
         var tabdedouble = [];
 
         for(var element in res){
-            console.log(element) ;
-            if (
-              tabdedouble.filter((e) => e._id === res[element]._id).length > 0
-            ) {
-              res[element].qte += 1;
+
+            var index = tabdedouble.findIndex((e) => e.Id === res[element]._i);
+
+
+
+            if (index >= 0) {
+              console.log(index);
+            
+              tabdedouble[index].qte +=1;
             } else {
               res[element].qte = 1;
+              tabdedouble.push(res[element]);
             }
-             tabdedouble.push(res[element]);
-        }
-    
-        console.log(tabdedouble.length);
+             
+        }    
+
         if(tabdedouble.length >0)
         {
             for (let article in tabdedouble) {
