@@ -6,32 +6,27 @@ import * as monPanier from "./panier.js";
 
 var total = 0;
 
+
 window.onload = function() {
-     monPanier.chargerPanier().then(function(res) {
+    monPanier.chargerPanier().then(function(res) {
 
         var tabdedouble = [];
 
         for(var element in res){
+            var index = tabdedouble.findIndex((e) => e._id == res[element]._id);
 
-            var index = tabdedouble.findIndex((e) => e.Id === res[element]._i);
-
-
-
-            if (index >= 0) {
-              console.log(index);
-            
-              tabdedouble[index].qte +=1;
+            if (index >= 0 && tabdedouble.length>0) {
+                tabdedouble[index].qte +=1;
             } else {
-              res[element].qte = 1;
-              tabdedouble.push(res[element]);
+                res[element].qte = 1;
+                tabdedouble.push(res[element]);
             }
-             
         }    
 
         if(tabdedouble.length >0)
         {
             for (let article in tabdedouble) {
-            createCardProduit(tabdedouble[article]);
+                createCardProduit(tabdedouble[article]);
             };
         }
 
@@ -92,6 +87,9 @@ function createCardProduit(article)
     var carddeck = document.getElementById("grille_produits");
     carddeck.appendChild(card);
 
+    var btn = document.getElementsByClassName(" btn-validerpanier")[0];
+    btn.addEventListener ("click", validerPanier);
+
 }
 
 function creerTotal() {
@@ -101,4 +99,41 @@ function creerTotal() {
     cardtotal.innerHTML = total/100 + ',00 €';
 }
 
+
+async function  validerPanier() {
+    var contact =  getInfosClient();
+    const products = await monPanier.chargerIds();
+    var  jsonbody = {contact,products,};
+    console.log(jsonbody);
+
+        var ret = await fetch("http://localhost:3000/api/cameras/order", {
+            method: "POST",
+            headers: { 
+                'Accept': 'application/json', 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(jsonbody)
+        })
+        
+
+        console.log(await ret.json().orderId);
+
+}
+
+function getInfosClient() {
+    var nom = document.getElementById("Nom").value;
+    var prenom = document.getElementById("Prenom").value;
+    var adresse = document.getElementById("Adresse").value;
+    var ville = document.getElementById("Ville").value;
+    var email = document.getElementById("Email").value;
+
+    return {firstName:prenom,lastName:nom,address:adresse,city:ville,email:email};
+
+    
+}
+
+
+function getListeId(){
+    return monPanier.chargerIds();
+}
 

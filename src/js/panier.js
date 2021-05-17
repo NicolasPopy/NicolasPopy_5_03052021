@@ -6,7 +6,6 @@ export async function chargerPanier()
     }
     else
     {
-      
         return new Array(0);
     }
 }
@@ -18,16 +17,25 @@ function sauverPanier(panier)
 }
 
 export  function ajouterElementPanier(element) {
-   chargerPanier().then((res)=>{
-
-    
-      res.push(element);
-      sauverPanier(res);
-  });
+        chargerPanier().then((res)=>{
+            res.push(element);
+            sauverPanier(res);
+    });
 }
 
 export function viderPanier()
 {
-  localStorage.clear();
+    localStorage.clear();
+}
+
+export async function chargerIds(){
+    var tabid = [];
+    var panier = await chargerPanier();
+
+    for (let prod in panier) {
+        tabid.push(panier[prod]._id);
+    }
+    console.log("retour chargerid");
+    return tabid;
 
 }

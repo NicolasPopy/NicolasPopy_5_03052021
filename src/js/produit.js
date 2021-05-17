@@ -67,10 +67,10 @@ function afficheProduit(prod){
 
       //Affiche bouton
       var btn = document.getElementsByClassName("btn-panier")[0];
-      btn.onclick=ajouterPanier;
+      btn.addEventListener ("click", ajouterPanier);
 
         var btn = document.getElementsByClassName("btn-viderpanier")[0];
-        btn.onclick = viderPanier;
+        btn.addEventListener ("click", viderPanier);
 
     }catch(ex)
     {

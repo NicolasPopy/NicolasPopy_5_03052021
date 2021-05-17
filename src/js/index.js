@@ -5,6 +5,10 @@ import "../css/index.scss";
 
 
 window.onload = function() {
+console.log(localStorage.getItem("panier"))
+
+
+
     fetch("http://localhost:3000/api/cameras")
     .then(function(res) {
         if (res.ok) {
@@ -81,3 +85,6 @@ function createArticle(article){
 catch(ex) {console.log(ex);}
 }
 
+function test(){
+    console.log("TEST OK");
+}
