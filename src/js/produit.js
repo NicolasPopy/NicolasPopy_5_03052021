@@ -25,6 +25,7 @@ fetch("http://localhost:3000/api/cameras/" + id)
 .then(function(value) {
 
     produit = value;
+    produit.qte = 1;
     afficheProduit(value);
     loadpanier();
     
@@ -32,6 +33,10 @@ fetch("http://localhost:3000/api/cameras/" + id)
 .catch(function(err) {
     // Une erreur est survenue
 });
+
+//************************
+// Affiche détail produit dans le DOM
+//************************
 
 
 function afficheProduit(prod){ 
@@ -59,10 +64,10 @@ function afficheProduit(prod){
       //Affiche Option
       var option = document.getElementsByClassName("form-select")[0];
       for (let opt in prod.lenses) {
-         var optionselect = document.createElement("option");
-         optionselect.value = prod.lenses[opt];
-         optionselect.innerHTML = prod.lenses[opt];
-         option.appendChild(optionselect);
+          var optionselect = document.createElement("option");
+          optionselect.value = prod.lenses[opt];
+          optionselect.innerHTML = prod.lenses[opt];
+          option.appendChild(optionselect);
       }
 
       //Affiche bouton
@@ -85,30 +90,33 @@ function afficheProduit(prod){
 //**************
 
 
-function loadpanier() {
-  var panier = monPanier.chargerPanier().then(()=>{
-    for (let prod in panier) {
-      ajouterlipanier(panier[prod].name);
-    }
-  });
+async function loadpanier(loadpanier) {
+  var panierliste = document.getElementById("panierliste");
+  panierliste.innerHTML='';
+  console.log("loadpanier");
+
+  var panier = await monPanier.chargerPanier();
+  console.log(panier);
+  for (let prod in panier) {
+    ajouterlipanier(panier[prod]);
+  }
+
 }
 
-function ajouterPanier(){ 
-    monPanier.ajouterElementPanier(produit, true);
-    ajouterlipanier(produit.name);
+async function ajouterPanier(){ 
+    await monPanier.ajouterElementPanier(produit, true);
+    loadpanier();
 }
 
 function viderPanier(){ 
   monPanier.viderPanier();
-
-
 }
 
 
-function ajouterlipanier(nameprod) {
+function ajouterlipanier(prod) {
   var panierliste = document.getElementById("panierliste");
   var liproduit = document.createElement("li");
 
-  liproduit.innerHTML = nameprod;
+  liproduit.innerHTML = prod.name +" qté : " + prod.qte;
   panierliste.appendChild(liproduit);
 }

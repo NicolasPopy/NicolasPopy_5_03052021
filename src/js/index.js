@@ -2,12 +2,11 @@ import "../css/main.scss";
 import "../css/index.scss";
 
 
-
+//**********************
+// Chargement de la page et des produits
+//**********************
 
 window.onload = function() {
-console.log(localStorage.getItem("panier"))
-
-
 
     fetch("http://localhost:3000/api/cameras")
     .then(function(res) {
@@ -18,9 +17,7 @@ console.log(localStorage.getItem("panier"))
     .then(function(value) {
         for (let prop in value) {
             createArticle(value[prop])
-        };
-        console.log(document)
-        
+        };      
     })
     .catch(function(err) {
         // Une erreur est survenue
@@ -28,10 +25,10 @@ console.log(localStorage.getItem("panier"))
 };
 
 
+
 //**********************
 // Création card produit
 //**********************
-
 
 
 function createArticle(article){
@@ -85,6 +82,3 @@ function createArticle(article){
 catch(ex) {console.log(ex);}
 }
 
-function test(){
-    console.log("TEST OK");
-}

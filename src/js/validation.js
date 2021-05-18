@@ -3,14 +3,17 @@ import "../css/main.scss";
 import "../css/panier.scss";
 import * as monPanier from "./panier.js";
 
-
 var total = 0;
 
+
+//************************
+// Charge recap commande  et calcule total
+//************************
 
 window.onload = function() {
     monPanier.chargerPanier().then(function(res) {
 
-        var tabdedouble = [];
+       /*  var tabdedouble = [];
 
         for(var element in res){
             var index = tabdedouble.findIndex((e) => e._id == res[element]._id);
@@ -21,12 +24,12 @@ window.onload = function() {
                 res[element].qte = 1;
                 tabdedouble.push(res[element]);
             }
-        }    
+        }     */
 
-        if(tabdedouble.length >0)
+        if(res.length >0)
         {
-            for (let article in tabdedouble) {
-                createCardProduit(tabdedouble[article]);
+            for (let article in res) {
+                createCardProduit(res[article]);
             };
         }
 
@@ -36,7 +39,9 @@ window.onload = function() {
 };
 
 
-
+//************************
+// Affiche le récap de commande dans le DOM
+//************************
 
 function createCardProduit(article)
 {   
@@ -73,8 +78,8 @@ function createCardProduit(article)
     var cardfooter = document.createElement("div");
     cardfooter.classList.add("card-footer");
     cardfooter.innerHTML = article.qte + " X " + article.price/100 + ",00 €";
-
-    total += article.price;
+/* 
+    total += article.price; */
     
 
 
@@ -92,12 +97,23 @@ function createCardProduit(article)
 
 }
 
-function creerTotal() {
+
+//************************
+// Affiche le total dans le DOM
+//************************
+
+
+ async function creerTotal() {
 
     var cardtotal = document.getElementById("Total");
 
-    cardtotal.innerHTML = total/100 + ',00 €';
+    cardtotal.innerHTML = await monPanier.calculTotalCommande() + ',00 €';
 }
+
+
+//************************
+// POST la commande et destinataire au serveur pour confirmation
+//************************
 
 
 async function  validerPanier() {
@@ -116,9 +132,16 @@ async function  validerPanier() {
         })
         
 
-        console.log(await ret.json().orderId);
+        var reponse = await ret.json();
+        console.log(reponse.orderId);
+        redirectionConfirmation(reponse.orderId);
 
 }
+
+
+//************************
+// Récupère les infos du destinataire dans le DOM
+//************************
 
 function getInfosClient() {
     var nom = document.getElementById("Nom").value;
@@ -127,13 +150,16 @@ function getInfosClient() {
     var ville = document.getElementById("Ville").value;
     var email = document.getElementById("Email").value;
 
-    return {firstName:prenom,lastName:nom,address:adresse,city:ville,email:email};
-
-    
+    return {firstName:prenom,lastName:nom,address:adresse,city:ville,email:email};    
 }
 
 
-function getListeId(){
-    return monPanier.chargerIds();
-}
 
+//************************
+// Redirige vers la page confirmation
+//************************
+
+
+function redirectionConfirmation(orderId){
+    document.location.href="/confirmation.html?id="+orderId; 
+  }
