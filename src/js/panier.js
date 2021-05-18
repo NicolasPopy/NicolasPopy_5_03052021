@@ -45,7 +45,7 @@ export  function ajouterElementPanier(element) {
 // Vide le panier du LocalStorage
 //**********************
 
-export function viderPanier()
+export async function viderPanier()
 {
     localStorage.clear();
 }

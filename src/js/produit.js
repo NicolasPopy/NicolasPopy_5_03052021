@@ -108,8 +108,9 @@ async function ajouterPanier(){
     loadpanier();
 }
 
-function viderPanier(){ 
-  monPanier.viderPanier();
+async function viderPanier(){ 
+  await monPanier.viderPanier();
+  loadpanier();
 }
 
 
