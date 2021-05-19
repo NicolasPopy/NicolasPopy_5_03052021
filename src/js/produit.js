@@ -71,6 +71,7 @@ function afficheProduit(prod){
       }
 
       //Affiche bouton
+    /*   document.querySelector */
       var btn = document.getElementsByClassName("btn-panier")[0];
       btn.addEventListener ("click", ajouterPanier);
 
@@ -81,7 +82,7 @@ function afficheProduit(prod){
     {
         console.error(ex);
     }
-    return
+    
 }
 
 
