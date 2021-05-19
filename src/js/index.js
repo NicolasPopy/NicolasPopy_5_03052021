@@ -52,7 +52,7 @@ function createArticle(article){
 
         //Création du body de la card
         var card_body = document.createElement("div");
-        card_body.classList.add("card-body")
+        card_body.classList.add("card-body","px-3","py-2","m-0")
         
 
         //Création du titre de la card
@@ -70,7 +70,7 @@ function createArticle(article){
         //Création du prix de la card
         var card_prix = document.createElement("div");
         card_prix.classList.add("card-footer","fw-bold");
-        card_prix.innerHTML = article.price/100 + " €";
+        card_prix.innerHTML = "Prix : " + article.price/100 + ",00 €";
         
 
         //Ajout de la card dans card-deck

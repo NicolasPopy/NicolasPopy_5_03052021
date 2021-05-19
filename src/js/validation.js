@@ -1,6 +1,6 @@
 
 import "../css/main.scss";
-import "../css/panier.scss";
+import "../css/validation.scss";
 import * as monPanier from "./panier.js";
 
 var total = 0;
@@ -13,25 +13,12 @@ var total = 0;
 window.onload = function() {
     monPanier.chargerPanier().then(function(res) {
 
-       /*  var tabdedouble = [];
-
-        for(var element in res){
-            var index = tabdedouble.findIndex((e) => e._id == res[element]._id);
-
-            if (index >= 0 && tabdedouble.length>0) {
-                tabdedouble[index].qte +=1;
-            } else {
-                res[element].qte = 1;
-                tabdedouble.push(res[element]);
-            }
-        }     */
-
-        if(res.length >0)
-        {
-            for (let article in res) {
-                createCardProduit(res[article]);
-            };
-        }
+    if(res.length >0)
+    {
+        for (let article in res) {
+            createCardProduit(res[article]);
+        };
+    }
 
         creerTotal();
         
@@ -47,7 +34,7 @@ function createCardProduit(article)
 {   
     // Card
     var card = document.createElement("article");
-    card.classList.add("card","w-75","mb-4");
+    card.classList.add("card","mb-4");
 
     //card horiztontal
     var cardhorizontal = document.createElement("div");

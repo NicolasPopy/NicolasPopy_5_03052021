@@ -49,7 +49,7 @@ function afficheProduit(prod){
       //Affiche prix
       var prix = document.getElementById("prix");
       var strong = prix.getElementsByTagName("strong")[0];
-      strong.innerHTML = prod.price/100 + " €";
+      strong.innerHTML = prod.price/100 + ",00 €";
 
       //Affiche image
       var photo = document.getElementById("photo");
@@ -117,6 +117,7 @@ async function viderPanier(){
 function ajouterlipanier(prod) {
   var panierliste = document.getElementById("panierliste");
   var liproduit = document.createElement("li");
+  liproduit.classList.add("list-group-item","bg-light","mx-4","my-2");
 
   liproduit.innerHTML = prod.name +" qté : " + prod.qte;
   panierliste.appendChild(liproduit);

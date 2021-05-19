@@ -32,26 +32,27 @@
       </div>
     </header>
     <div id="content" class="d-flex flex-row">
-      <main class="w-50 mx-auto my-5">
+      <main class="mx-auto my-5">
         <div id="photo"><img></img></div>   
 
         <div id="titre"><h1 class="text-center"></h1></div>
-        <div id="description"><p class="p-3"></p></div>
-        <div id="option"><select class="form-select" aria-label="Personnalisation"></select></div>
-        <div id="prix" class="text-center"><strong ></strong></div>        
+        <div id="description"><p class="px-3"></p></div>
+        <div id="option" class="px-3"><select class="form-select " aria-label="Personnalisation"></select></div>
+        <div id="prix" class="text-center "><strong ></strong></div>        
         
-        <div id="bouton"><button type="button" class="btn btn-primary btn-panier">Ajouter au panier</button></div>
+        <div id="bouton" class="mx-0"><button type="button" class="btn btn-primary btn-panier w-100 h-100">Ajouter au panier</button></div>
         
       </main>
-      <aside id="panier" class="w-25 my-5 mx-3 text-center bg-primary">
-        <h2>PANIER</h2>
-        <ul id="panierliste">
+      <aside id="panier" class=" my-5 mx-3 text-center bg-dark">
+        <h2 class="py-1">PANIER</h2>
+        <ul id="panierliste" class="list-group">
 
         </ul>
 
-        <a href="validation.html" role="button" class="btn btn-secondary btn-validerpanier">Valider votre panier</a>
-        <div id="bouton"><button type="button" class="btn btn-primary btn-viderpanier">Vider le panier</button></div>
-
+        <div class="aside_footer w-100 mt-4" >
+          <button onclick="location.href = 'validation.html'" role="button" class="btn btn-secondary btn-validerpanier w-100 py-4">Valider votre panier</button>
+          <button id="bouton_vider" type="button" class="btn btn-primary btn-viderpanier w-100 py-4">Vider le panier</button>
+        </div>
       </aside>
     </div>
 
