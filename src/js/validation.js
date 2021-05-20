@@ -76,10 +76,10 @@ function createCardProduit(article)
 
     card.appendChild(cardhorizontal);
 
-    var carddeck = document.getElementById("grille_produits");
+    var carddeck = document.querySelector("#grille_produits");
     carddeck.appendChild(card);
 
-    var btn = document.getElementsByClassName(" btn-validerpanier")[0];
+    var btn = document.querySelector(".btn-validerpanier");
     btn.addEventListener ("click", validerPanier);
 
 }
@@ -92,7 +92,7 @@ function createCardProduit(article)
 
  async function creerTotal() {
 
-    var cardtotal = document.getElementById("Total");
+    var cardtotal = document.querySelector("#Total");
 
     cardtotal.innerHTML = await monPanier.calculTotalCommande() + ',00 €';
 }
@@ -131,11 +131,11 @@ async function  validerPanier() {
 //************************
 
 function getInfosClient() {
-    var nom = document.getElementById("Nom").value;
-    var prenom = document.getElementById("Prenom").value;
-    var adresse = document.getElementById("Adresse").value;
-    var ville = document.getElementById("Ville").value;
-    var email = document.getElementById("Email").value;
+    var nom = document.querySelector("#Nom").value;
+    var prenom = document.querySelector("#Prenom").value;
+    var adresse = document.querySelector("#Adresse").value;
+    var ville = document.querySelector("#Ville").value;
+    var email = document.querySelector("#Email").value;
 
     return {firstName:prenom,lastName:nom,address:adresse,city:ville,email:email};    
 }

@@ -42,27 +42,23 @@ fetch("http://localhost:3000/api/cameras/" + id)
 function afficheProduit(prod){ 
     try{
       //Affiche titre
-      var titre = document.getElementById("titre");
-      var h1 = titre.getElementsByTagName("h1")[0];
+      var h1 = document.querySelector("#titre h1");
       h1.innerHTML = prod.name;
 
-      //Affiche prix
-      var prix = document.getElementById("prix");
-      var strong = prix.getElementsByTagName("strong")[0];
+      //Affiche prix   
+      var strong = document.querySelector("#prix strong");
       strong.innerHTML = prod.price/100 + ",00 €";
 
       //Affiche image
-      var photo = document.getElementById("photo");
-      var img = photo.getElementsByTagName("img")[0];
+      var img = document.querySelector("#photo img");
       img.setAttribute("src", prod.imageUrl);
 
       //Affiche description
-      var description = document.getElementById("description");
-      var p = description.getElementsByTagName("p")[0];
+      var p = document.querySelector("#description p");
       p.innerHTML = prod.description;
 
       //Affiche Option
-      var option = document.getElementsByClassName("form-select")[0];
+      var option = document.querySelector(".form-select");
       for (let opt in prod.lenses) {
           var optionselect = document.createElement("option");
           optionselect.value = prod.lenses[opt];
@@ -71,11 +67,10 @@ function afficheProduit(prod){
       }
 
       //Affiche bouton
-    /*   document.querySelector */
-      var btn = document.getElementsByClassName("btn-panier")[0];
+      var btn = document.querySelector(".btn-panier");
       btn.addEventListener ("click", ajouterPanier);
 
-        var btn = document.getElementsByClassName("btn-viderpanier")[0];
+        var btn = document.querySelector(".btn-viderpanier");
         btn.addEventListener ("click", viderPanier);
 
     }catch(ex)
@@ -92,9 +87,8 @@ function afficheProduit(prod){
 
 
 async function loadpanier(loadpanier) {
-  var panierliste = document.getElementById("panierliste");
+  var panierliste = document.querySelector("#panierliste");
   panierliste.innerHTML='';
-  console.log("loadpanier");
 
   var panier = await monPanier.chargerPanier();
   console.log(panier);
@@ -116,7 +110,7 @@ async function viderPanier(){
 
 
 function ajouterlipanier(prod) {
-  var panierliste = document.getElementById("panierliste");
+  var panierliste = document.querySelector("#panierliste");
   var liproduit = document.createElement("li");
   liproduit.classList.add("list-group-item","bg-light","mx-4","my-2");
 

@@ -76,7 +76,7 @@ function createArticle(article){
         //Ajout de la card dans card-deck
         card.appendChild(card_body);
         card.appendChild(card_prix);
-        var carddeck = document.getElementById("grille_produits");
+        var carddeck = document.querySelector("#grille_produits");
         carddeck.appendChild(card)
 }
 catch(ex) {console.log(ex);}
