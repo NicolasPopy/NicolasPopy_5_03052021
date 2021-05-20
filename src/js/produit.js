@@ -47,7 +47,7 @@ function afficheProduit(prod){
 
       //Affiche prix   
       var strong = document.querySelector("#prix strong");
-      strong.innerHTML = prod.price/100 + ",00 €";
+      strong.innerHTML = (prod.price/100).toFixed(2) + "€";
 
       //Affiche image
       var img = document.querySelector("#photo img");
@@ -70,14 +70,23 @@ function afficheProduit(prod){
       var btn = document.querySelector(".btn-panier");
       btn.addEventListener ("click", ajouterPanier);
 
-        var btn = document.querySelector(".btn-viderpanier");
-        btn.addEventListener ("click", viderPanier);
+      
+      var btnvalider = document.querySelector("#bouton_valider");
+      btnvalider.addEventListener ("click", redirectionValidation );
+
+
+        var btnvider = document.querySelector("#bouton_vider");
+        btnvider.addEventListener ("click", viderPanier);
 
     }catch(ex)
     {
         console.error(ex);
-    }
-    
+    }    
+}
+
+function redirectionValidation()
+{
+  document.location.href="/validation.html"
 }
 
 

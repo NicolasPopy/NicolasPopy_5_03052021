@@ -18,7 +18,7 @@ window.onload = async function() {
     H1.innerHTML= "Merci pour votre commande " + id;
 
     var H2 = document.querySelector("#confirmationTotal");
-    H2.innerHTML ="d'un montant de "+ await monPanier.calculTotalCommande() + ",00€";
+    H2.innerHTML ="d'un montant de "+ await monPanier.calculTotalCommande() + "€";
 
 }
 

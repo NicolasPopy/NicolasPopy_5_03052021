@@ -32,21 +32,22 @@
       </div>
     </header>
 
-    <main class="w-100 px-5 my-5">
-      <section class="Panier">
+    <main class="w-75 mx-auto px-3 my-5">
+      <section class="Panier ">
         <h1>PANIER</h1>
         <div  id="grille_produits" class="container-fluid  d-flex flex-column">
 
 
         </div>
-        <div id="ligneTotal">
+        <div id="ligneTotal" class="container-fluid">
           <div class="labelTotal">TOTAL :</div>
           <strong id="Total"></strong>
         </div>
       </section>
-      <section class="Destinataire w-50">
+      <section class="vide"></section>
+      <section class="Destinataire">
         <H2>Destinataire</H2>
-        <form class="formDestinataire" method="POST" action="Validation.html" >
+        <form class="formDestinataire">
           <label for="Prenom">Prénom</label>
           <input type="text" class="form-control" id="Prenom" aria-describedby="Prenom" placeholder="Entrez votre prénom">
 
@@ -62,7 +63,7 @@
             <label for="Email">Email</label>
             <input type="text" class="form-control" id="Email" aria-describedby="Email" placeholder="Entrez votre email">
 
-            <input type="button" class="btn btn-success btn-validerpanier"  value="Commandez" />
+            <input type="button" class="btn btn-success btn-validerpanier mx-auto my-3"  value="Commandez" />
         </form>
       </section>
     </main>

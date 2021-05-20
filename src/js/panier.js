@@ -79,5 +79,5 @@ export async function calculTotalCommande(){
         total += panier[prod].price * panier[prod].qte;
     }
 
-    return total/100;
+    return (total/100).toFixed(2);
 }

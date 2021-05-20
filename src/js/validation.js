@@ -42,32 +42,24 @@ function createCardProduit(article)
 
     //image
     var cardimg = document.createElement("img");
-    cardimg.classList.add("img_carre","w-100","h-100");
+    cardimg.classList.add("img_carre","img-fluid");
     cardimg.setAttribute("src", article.imageUrl);
 
     //body
     var cardbody = document.createElement("div");
-    cardbody.classList.add("card-body");
+    cardbody.classList.add("card-body","py-0");
 
     //title
     var cardtitle = document.createElement("h2")
-    cardtitle.classList.add("card-title");
+    cardtitle.classList.add("card-title","m-0");
     cardtitle.innerHTML = article.name;
     cardbody.appendChild(cardtitle);
 
-    //description
-    var carddescription = document.createElement("div");
-    carddescription.classList.add("card-text");
-    carddescription.innerHTML = article.description;
-    cardbody.appendChild(carddescription);
 
     //footer
-    var cardfooter = document.createElement("div");
-    cardfooter.classList.add("card-footer");
-    cardfooter.innerHTML = article.qte + " X " + article.price/100 + ",00 €";
-/* 
-    total += article.price; */
-    
+    var cardfooter = document.createElement("strong");
+    cardfooter.classList.add("card-footer","p-0");
+    cardfooter.innerHTML = article.qte + " X " + (article.price/100).toFixed(2) + "€";
 
 
     cardhorizontal.appendChild(cardimg);
@@ -90,11 +82,9 @@ function createCardProduit(article)
 //************************
 
 
- async function creerTotal() {
-
+async function creerTotal() {
     var cardtotal = document.querySelector("#Total");
-
-    cardtotal.innerHTML = await monPanier.calculTotalCommande() + ',00 €';
+    cardtotal.innerHTML = await monPanier.calculTotalCommande() + '€';
 }
 
 

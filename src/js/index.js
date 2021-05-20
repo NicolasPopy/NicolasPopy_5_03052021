@@ -70,7 +70,7 @@ function createArticle(article){
         //Création du prix de la card
         var card_prix = document.createElement("div");
         card_prix.classList.add("card-footer","fw-bold");
-        card_prix.innerHTML = "Prix : " + article.price/100 + ",00 €";
+        card_prix.innerHTML = "Prix : " + (article.price/100).toFixed(2) + " €";
         
 
         //Ajout de la card dans card-deck
