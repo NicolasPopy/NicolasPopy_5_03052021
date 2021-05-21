@@ -50,16 +50,18 @@ function createCardProduit(article)
     cardbody.classList.add("card-body","py-0");
 
     //title
-    var cardtitle = document.createElement("h2")
-    cardtitle.classList.add("card-title","m-0");
+    var cardtitle = document.createElement("h3")
+    cardtitle.classList.add("card-title","text-center");
     cardtitle.innerHTML = article.name;
     cardbody.appendChild(cardtitle);
 
 
     //footer
-    var cardfooter = document.createElement("strong");
-    cardfooter.classList.add("card-footer","p-0");
-    cardfooter.innerHTML = article.qte + " X " + (article.price/100).toFixed(2) + "€";
+    var cardfooter = document.createElement("div");
+    cardfooter.classList.add("card-footer");
+    var strong = document.createElement("strong");
+    strong.innerHTML = article.qte + " X " + (article.price / 100).toFixed(2) + "€";
+    cardfooter.appendChild(strong);
 
 
     cardhorizontal.appendChild(cardimg);

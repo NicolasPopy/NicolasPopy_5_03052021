@@ -33,37 +33,41 @@
     </header>
 
     <main class="w-75 mx-auto px-3 my-5">
+      <h1 class="TitrePrincipal">VALIDATION DE LA COMMANDE</h1>
       <section class="Panier ">
-        <h1>PANIER</h1>
-        <div  id="grille_produits" class="container-fluid  d-flex flex-column">
+        <h2>Panier</h2>
+        <div  id="grille_produits" class="container-fluid px-0 d-flex flex-column">
 
 
         </div>
-        <div id="ligneTotal" class="container-fluid">
-          <div class="labelTotal">TOTAL :</div>
-          <strong id="Total"></strong>
+        <div id="ligneTotal" class="container-fluid mb-5">
+          <div class="labelTotal bg-white px-1 py-3 ">TOTAL :</div>
+          <strong id="Total" class="py-3 text-center"></strong>
         </div>
       </section>
       <section class="vide"></section>
-      <section class="Destinataire">
+      <section class="Destinataire mb-auto">
         <H2>Destinataire</H2>
         <form class="formDestinataire">
-          <label for="Prenom">Prénom</label>
-          <input type="text" class="form-control" id="Prenom" aria-describedby="Prenom" placeholder="Entrez votre prénom">
+          <div class="row col">
+            <label for="Prenom">Prénom</label>
+            <input type="text" class="form-control mb-2" id="Prenom" aria-describedby="Prenom" placeholder="Entrez votre prénom">
 
-            <label for="Nom">Nom</label>
-            <input type="text" class="form-control" id="Nom" aria-describedby="Nom" placeholder="Entrez votre nom de famille">
+              <label for="Nom">Nom</label>
+              <input type="text" class="form-control mb-2" id="Nom" aria-describedby="Nom" placeholder="Entrez votre nom de famille">
 
-            <label for="Adresse">Adresse</label>
-            <input type="text" class="form-control" id="Adresse" aria-describedby="Adresse" placeholder="Entrez votre adresse">
+              <label for="Adresse">Adresse</label>
+              <textarea  type="text" rows="3" class="form-control mb-2" id="Adresse" aria-describedby="Adresse" placeholder="Entrez votre adresse"></textarea>
 
-            <label for="Ville">Ville</label>
-            <input type="text" class="form-control" id="Ville" aria-describedby="Ville" placeholder="Entrez votre ville">
-            
-            <label for="Email">Email</label>
-            <input type="text" class="form-control" id="Email" aria-describedby="Email" placeholder="Entrez votre email">
-
-            <input type="button" class="btn btn-success btn-validerpanier mx-auto my-3"  value="Commandez" />
+              <label for="Ville">Ville</label>
+              <input type="text" class="form-control mb-2" id="Ville" aria-describedby="Ville" placeholder="Entrez votre ville">
+              
+              <label for="Email">Email</label>
+              <input type="text" class="form-control mb-2" id="Email" aria-describedby="Email" placeholder="Entrez votre email">
+          </div>
+          <div class="row col">
+            <input type="button" class="btn btn-success btn-validerpanier w-25 mx-auto py-3 my-3"  value="Commandez" />
+          </div>
         </form>
       </section>
     </main>

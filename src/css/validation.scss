@@ -2,11 +2,16 @@
 
 main{
     display: grid;
-    grid-template-columns:4fr * 4fr;
-    grid-template-rows:1fr;
+    grid-template-columns:3fr 1fr 3fr;
+    grid-template-rows:1fr 8fr;
 
-    grid-template-areas: "resume vide destinataire";
+    grid-template-areas: "titre titre titre" "resume vide destinataire";
     gap:50px;
+}
+
+.TitrePrincipal{
+    grid-area:titre;
+    text-align: center;
 }
 
 
@@ -14,11 +19,14 @@ main{
     grid-area:resume;
     background-color: grey;
     border-radius: 25px;
-    box-shadow: 1px;
-    padding:0 5% 0 5%;
+  
+    padding:0 12% 0 12%;
+    border:5px solid black;
 
-    & h1{
+    & h2{
         text-align: center;
+         margin-top: 5%;
+        margin-bottom: 5%;
     }
 }
 
@@ -28,6 +36,18 @@ main{
 
 .Destinataire{
     grid-area:destinataire;
+    background-color: grey;
+    border-radius: 25px;
+
+    padding:0 7% 0 7%;
+    border:5px solid black;
+
+    & h2{
+        
+        text-align: center;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
 }
 
 
@@ -35,10 +55,30 @@ main{
 //card du panier
 //####################
 
+.card-body{
+     position: relative;
+
+     & h3{
+         position: absolute;               
+         top: 50%;                        
+         transform: translate(0, -50%) ;
+     }
+}
+
+.card-footer{
+    position: relative;
+    background-color: #D7DBDD;
+
+     & strong{
+         position: absolute;               
+         top: 50%;                        
+         transform: translate(0, -50%) ;
+     }
+}
 
 .card-horizontal{
     display:grid;
-    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-columns: 1fr 1.2fr 0.6fr;
     grid-template-rows: 1fr;
     grid-template-areas: "photo titre prix";
 
@@ -49,17 +89,18 @@ main{
         object-fit: cover;
     }
 
-    & h2
+    & h3
     {
         grid-area: titre;
-        line-height: 4em;
-        font-size: 2.2em;
+       /*  line-height: 4em; */
+        font-size: 1.6em;
     }
     & strong {
         grid-area: prix;
-        line-height: 4em;
-        font-size: 1.8em;
+        /* line-height: 4em; */
+        font-size: 0.9em;
         font-weight: normal;
+        
     }
 }
 
@@ -71,9 +112,11 @@ main{
 
 #ligneTotal{
     display:grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: 2.2fr 0.6fr;
     grid-template-rows: 1fr;
     grid-template-areas: "labelTotal Total";
+    border: 3px solid black;
+    margin:0; padding:0;
 
     & div{
         border:1px solid black;
@@ -81,13 +124,16 @@ main{
 
     & strong{
         border:1px solid black;
+        
     }
 
     & .labelTotal{
         grid-area:labelTotal;
+        text-align: right;
     }
 
     & #Total{
         grid-area: Total;
+        background-color: #D7DBDD;
     }
 }
