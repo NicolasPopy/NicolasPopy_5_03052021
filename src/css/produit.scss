@@ -1,8 +1,10 @@
 main{
     display:grid;
 
-    grid-template-rows: 6rem 6.5rem 6.5rem 5.5rem;
-    grid-template-columns: 33rem 11rem 11rem;
+    width: 70%;
+
+    grid-template-rows: 24.5% 30% 30% 15.5%;
+    grid-template-columns: 50% 25% 25%;
 
     grid-template-areas: "photo titre titre"
                         "photo  description description"
@@ -10,8 +12,15 @@ main{
                         "photo prix bouton";      
 
     border:1px solid black; 
-    height:24.5rem;
 }
+
+ @media screen and (max-width: 992px) {
+    main{
+        width: 90%;
+    }
+
+ }
+
 
 
 #titre{
@@ -19,7 +28,8 @@ main{
     width:100%;
 
     & h1{
-        line-height: 6rem;
+        font-size: 2.6em;
+        line-height: 2em;
     }
     
 }
@@ -48,15 +58,23 @@ main{
 
 #description{
     grid-area: description;
+
+    & p{
+        font-size: 1.4em;
+    }
 }
 
-#bouton_vider{
+#btn-panier{
     grid-area: bouton;
 }
 
+.btn{
+    font-size: 1em;
+}
+
 strong{
-    line-height:5.5rem;
-    font-size: 1.5rem;
+    line-height:2.7em;
+    font-size: 1.5em;
 }
 
 
@@ -78,3 +96,13 @@ strong{
         
     }
 }
+
+
+ @media screen and (max-width: 992px) {
+    #panier{
+        width: 35%;
+        align-self:center;
+        font-size: 200%;
+    }
+
+ }

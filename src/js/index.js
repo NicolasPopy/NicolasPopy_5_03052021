@@ -40,7 +40,7 @@ function createArticle(article){
 
         //Création de la carte
         var card = document.createElement("article");
-        card.classList.add("card","col","mx-4");
+        card.classList.add("card","col","mx-4","p-0");
 
         card.appendChild(link);
         

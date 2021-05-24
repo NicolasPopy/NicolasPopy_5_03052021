@@ -112,7 +112,7 @@ async function  validerPanier() {
         
 
         var reponse = await ret.json();
-        console.log(reponse.orderId);
+
         redirectionConfirmation(reponse.orderId);
 
 }

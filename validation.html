@@ -18,21 +18,24 @@
 
     <header>
       <nav class="m-0 p-0 navbar navbar-light bg-light justify-content-between ">
-        <a class="navbar-brand" href="Index.html"><img src="./src/Images/logo_orinoco.png" id="Logo_Orinoco" /></a>
-        <div class="d-flex">
-
-            <input class="form-control my-2 mx-3" type="Recherche" placeholder="Recherche" aria-label="Recherche">
-
-            <button class="btn btn-outline-success mx-4 my-2 " type="submit">Recherche</button>
-
+        <a class="navbar-brand mx-2" href="Index.html"><img src="./src/Images/logo_orinoco.png" id="Logo_Orinoco" /></a>
+        <div class="row ">
+          <div class="col-9">
+            <input class="form-control input-lg" type="Recherche" placeholder="Recherche" aria-label="Recherche">
+          </div>
+          <div class="col-1">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Recherche</button>
+          </div>
         </div>
+        <div><a class="btn btn-outline-success mx-2 my-2 my-sm-0" href="validation.html"><i
+              class="fas fa-shopping-cart"></i> Panier</a></div>
       </nav>
       <div class="Header_fond">
-      
+    
       </div>
     </header>
 
-    <main class="w-75 mx-auto px-3 my-5">
+    <main class="mx-auto px-3 my-5">
       <h1 class="TitrePrincipal">VALIDATION DE LA COMMANDE</h1>
       <section class="Panier ">
         <h2>Panier</h2>
@@ -51,22 +54,22 @@
         <form class="formDestinataire">
           <div class="row col">
             <label for="Prenom">Prénom</label>
-            <input type="text" class="form-control mb-2" id="Prenom" aria-describedby="Prenom" placeholder="Entrez votre prénom">
+            <input type="text" class="form-control input-lg mb-2" id="Prenom" aria-describedby="Prenom" placeholder="Entrez votre prénom">
 
               <label for="Nom">Nom</label>
-              <input type="text" class="form-control mb-2" id="Nom" aria-describedby="Nom" placeholder="Entrez votre nom de famille">
+              <input type="text" class="form-control input-lg mb-2" id="Nom" aria-describedby="Nom" placeholder="Entrez votre nom de famille">
 
               <label for="Adresse">Adresse</label>
-              <textarea  type="text" rows="3" class="form-control mb-2" id="Adresse" aria-describedby="Adresse" placeholder="Entrez votre adresse"></textarea>
+              <textarea  type="text" rows="3" class="form-control input-lg mb-2" id="Adresse" aria-describedby="Adresse" placeholder="Entrez votre adresse"></textarea>
 
               <label for="Ville">Ville</label>
-              <input type="text" class="form-control mb-2" id="Ville" aria-describedby="Ville" placeholder="Entrez votre ville">
+              <input type="text" class="form-control input-lg mb-2" id="Ville" aria-describedby="Ville" placeholder="Entrez votre ville">
               
               <label for="Email">Email</label>
-              <input type="text" class="form-control mb-2" id="Email" aria-describedby="Email" placeholder="Entrez votre email">
+              <input type="text" class="form-control input-lg mb-2" id="Email" aria-describedby="Email" placeholder="Entrez votre email">
           </div>
           <div class="row col">
-            <input type="button" class="btn btn-success btn-validerpanier w-25 mx-auto py-3 my-3"  value="Commandez" />
+            <input type="button" class="btn btn-success btn-validerpanier mx-auto py-3 my-3"  value="Commandez" />
           </div>
         </form>
       </section>

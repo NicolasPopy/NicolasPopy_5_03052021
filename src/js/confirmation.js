@@ -14,11 +14,6 @@ const id = urlParams.get('id');
 
 window.onload = async function() {
     var H1 = document.querySelector("#confirmationText");
-
-    H1.innerHTML= "Merci pour votre commande " + id;
-
-    var H2 = document.querySelector("#confirmationTotal");
-    H2.innerHTML ="d'un montant de "+ await monPanier.calculTotalCommande() + "€";
-
+    H1.innerHTML= "Merci pour votre commande N° " + id+ " d'un montant de "+ await monPanier.calculTotalCommande() + "€";
 }
 
