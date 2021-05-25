@@ -12,19 +12,19 @@ main{
         font-size: 100%;
 }
 
- @media screen and (max-width: 992px) {
-    main{
-        width:90%;
-       grid-template-columns:1fr;
-       grid-template-rows:1fr 5fr 0.5fr 5fr;
+@media screen and (max-width: 992px) {
+main{
+    width:90%;
+    grid-template-columns:1fr;
+    grid-template-rows:1fr 5fr 0.5fr 5fr;
 
-       grid-template-areas: "titre" "resume" "vide" "destinataire";
-       gap:10px;
+    grid-template-areas: "titre" "resume" "vide" "destinataire";
+    gap:10px;
 
-           font-size: 250%;
-    }
+        font-size: 250%;
+}
 
- }
+}
 
 
 
@@ -177,4 +177,14 @@ main{
         grid-area: Total;
         background-color: #D7DBDD;
     }
+}
+
+
+input:valid, textarea:valid {
+    border: 5px solid green;    
+}
+
+input:invalid, textarea:invalid {
+    border: 5px solid red;
+
 }

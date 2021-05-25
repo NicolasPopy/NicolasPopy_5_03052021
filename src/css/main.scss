@@ -1,7 +1,7 @@
 #Logo_Orinoco{
     object-fit:cover;
-     height:9em;
-     margin:0 auto;padding:0;
+    height:6em;
+    margin:0 auto;padding:0;
 }
 
 
@@ -22,16 +22,30 @@ html{
     font-size: 1vw;
 }
 
+.navbar{
+    font-size: 1vw;
+}
+
+@media screen and (max-width: 992px) {
+    .navbar{
+        font-size: 2.5vw;
+    }
+}
 
 .navbar .form-control{
-    font-size: 2.7em;
+    font-size: 1.6em;
 }
 
 .navbar .btn{
-    font-size: 2.7em;
+    font-size: 1.5em;
 }
 
-.navbar row{
+.navbar .row{
     width:40%;
 }
 
+@media screen and (max-width: 992px) {
+    .navbar .row{
+        display:none;
+    }
+}

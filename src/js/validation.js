@@ -20,10 +20,15 @@ window.onload = function() {
         };
     }
 
+   /*  checkFormulaire(); */
+
         creerTotal();
         
     });
 };
+
+
+
 
 
 //************************
@@ -96,25 +101,34 @@ async function creerTotal() {
 
 
 async function  validerPanier() {
-    var contact =  getInfosClient();
-    const products = await monPanier.chargerIds();
-    var  jsonbody = {contact,products,};
-    console.log(jsonbody);
 
-        var ret = await fetch("http://localhost:3000/api/cameras/order", {
-            method: "POST",
-            headers: { 
-                'Accept': 'application/json', 
-                'Content-Type': 'application/json' 
-            },
-            body: JSON.stringify(jsonbody)
-        })
-        
 
-        var reponse = await ret.json();
+    var form = document.querySelector(".formDestinataire");
 
-        redirectionConfirmation(reponse.orderId);
+    if(form.checkValidity() == false){
+        alert("Certains champs ne sont pas conformes");
+    }
+    else
+    {   
+        var contact =  getInfosClient();
+        const products = await monPanier.chargerIds();
+        var  jsonbody = {contact,products,};
+    
 
+            var ret = await fetch("http://localhost:3000/api/cameras/order", {
+                method: "POST",
+                headers: { 
+                    'Accept': 'application/json', 
+                    'Content-Type': 'application/json' 
+                },
+                body: JSON.stringify(jsonbody)
+            })
+            
+
+            var reponse = await ret.json();
+
+            redirectionConfirmation(reponse.orderId);
+    }
 }
 
 
@@ -123,6 +137,7 @@ async function  validerPanier() {
 //************************
 
 function getInfosClient() {
+
     var nom = document.querySelector("#Nom").value;
     var prenom = document.querySelector("#Prenom").value;
     var adresse = document.querySelector("#Adresse").value;
