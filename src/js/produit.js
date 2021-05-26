@@ -15,24 +15,25 @@ var produit ;
 // Affiche détail produit 
 //************************
 
+window.onload = function() {
+  fetch("http://localhost:3000/api/cameras/" + id)
+  .then(function(res) {
+      if (res.ok) {        
+          return res.json();
+      }
+  })
+  .then(function(value) {
 
-fetch("http://localhost:3000/api/cameras/" + id)
-.then(function(res) {
-    if (res.ok) {        
-        return res.json();
-    }
-})
-.then(function(value) {
-
-    produit = value;
-    produit.qte = 1;
-    afficheProduit(value);
-    loadpanier();
-    
-})
-.catch(function(err) {
-    // Une erreur est survenue
-});
+      produit = value;
+      produit.qte = 1;
+      afficheProduit(value);
+      loadpanier();
+      
+  })
+  .catch(function(err) {
+      // Une erreur est survenue
+  });
+}
 
 //************************
 // Affiche détail produit dans le DOM

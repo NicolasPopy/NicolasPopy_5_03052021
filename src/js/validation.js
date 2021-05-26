@@ -129,6 +129,11 @@ async function  validerPanier() {
     }
 }
 
+
+//************************
+// Vérification du formulaire de contact
+//************************
+
 function checkForm(){
     var prenom = document.querySelector("#Prenom");
     var nom = document.querySelector("#Nom");
@@ -198,4 +203,4 @@ function getInfosClient() {
 
 function redirectionConfirmation(orderId){
     document.location.href="/confirmation.html?id="+orderId; 
-  }
+}
