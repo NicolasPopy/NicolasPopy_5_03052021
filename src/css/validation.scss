@@ -7,7 +7,7 @@ main{
 
     grid-template-areas: "titre titre titre" "resume vide destinataire";
     gap:50px;
-    width:85%;
+    width:90%;
 
         font-size: 100%;
 }
@@ -180,11 +180,3 @@ main{
 }
 
 
-input:valid, textarea:valid {
-    border: 5px solid green;    
-}
-
-input:invalid, textarea:invalid {
-    border: 5px solid red;
-
-}

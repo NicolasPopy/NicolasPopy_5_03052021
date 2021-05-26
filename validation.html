@@ -57,16 +57,16 @@
         <form class="formDestinataire">
           <div class="row col">
             <label for="Prenom">Prénom</label>
-            <input type="text" pattern="[A-z ,.'-]{2,80}" required class="form-control input-lg mb-2" id="Prenom" aria-describedby="Prenom" title="Le prénom ne doit pas contenir de chiffre" placeholder="Entrez votre prénom" />
+            <input type="text" pattern="[A-z][A-z ,.'-]{1,}" required class="form-control input-lg mb-2" name="Prenom" id="Prenom" aria-describedby="Prenom" title="Le prénom ne doit pas contenir de chiffre" placeholder="Entrez votre prénom" />
 
               <label for="Nom">Nom</label>
-              <input type="text" pattern="[A-z ,.'-]{2,80}" required class="form-control input-lg mb-2" id="Nom" aria-describedby="Nom" placeholder="Entrez votre nom de famille" />
+              <input type="text" pattern="[A-z][A-z ,.'-]{1,}" required class="form-control input-lg mb-2" name="Nom" id="Nom" aria-describedby="Nom" placeholder="Entrez votre nom de famille" />
 
               <label for="Adresse">Adresse</label>
-              <textarea  type="address" pattern="[A-z ,.'-]{2,80}" required rows="3" class="form-control input-lg mb-2" id="Adresse" aria-describedby="Adresse" placeholder="Entrez votre adresse"></textarea>
+              <textarea  type="address" pattern="[A-9 ,.'-]{1,}" required rows="3" class="form-control input-lg mb-2" name="Adresse" id="Adresse" aria-describedby="Adresse" placeholder="Entrez votre adresse"></textarea>
 
               <label for="Ville">Ville</label>
-              <input type="text" pattern="[A-z ,.'-]{2,80}" required class="form-control input-lg mb-2" id="Ville" aria-describedby="Ville" placeholder="Entrez votre ville" />
+              <input type="text" pattern="[A-z][A-z ,.'-]{1,}" required class="form-control input-lg mb-2" name="Ville" id="Ville" aria-describedby="Ville" placeholder="Entrez votre ville" />
               
               <label for="Email">Email</label>
               <input type="email" class="form-control input-lg mb-2" required id="Email" aria-describedby="Email" placeholder="Entrez votre email" />

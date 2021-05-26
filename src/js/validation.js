@@ -20,13 +20,10 @@ window.onload = function() {
         };
     }
 
-   /*  checkFormulaire(); */
-
         creerTotal();
         
     });
 };
-
 
 
 
@@ -104,9 +101,10 @@ async function  validerPanier() {
 
 
     var form = document.querySelector(".formDestinataire");
+    var nom = document.querySelector("#Nom");
 
-    if(form.checkValidity() == false){
-        alert("Certains champs ne sont pas conformes");
+    if(form.checkValidity() == false ){
+        alert("Certains champs ne sont pas conformes :\n " + checkForm());
     }
     else
     {   
@@ -131,6 +129,50 @@ async function  validerPanier() {
     }
 }
 
+function checkForm(){
+    var prenom = document.querySelector("#Prenom");
+    var nom = document.querySelector("#Nom");
+    var adresse = document.querySelector("#Adresse");
+    var ville = document.querySelector("#Ville");
+    var email = document.querySelector("#Email");
+
+    var message = "";
+    message += checkTextInput(prenom) + checkTextInput(nom) + checkTextInput(adresse) + checkTextInput(ville) + checkEmail(email);
+
+    return message;
+
+}
+
+function checkTextInput(inp){
+    if(inp.value == null || inp.value == "")
+    {
+        return "- Le champ " + inp.name + " est vide.\n";
+    }
+    else
+    {
+        if(inp.checkValidity()==false){
+            return "- Le champ " + inp.name + " n'utilise pas de caractères alphabétique ou spéciaux autorisés ( ,.'-).\n";
+        }
+        else
+            return "";
+    }
+}
+
+
+function checkEmail(inp){
+    if(inp.value == null || inp.value == "")
+    {
+        return "- Le champ Email est vide";
+    }
+    else
+    {
+        if(inp.checkValidity()==false){
+            return "- Le champ Email n'est pas au bon format autorisé.";
+        }
+        else
+            return "";
+    }
+}
 
 //************************
 // Récupère les infos du destinataire dans le DOM
