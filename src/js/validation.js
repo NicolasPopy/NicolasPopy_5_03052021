@@ -12,27 +12,41 @@ var total = 0;
 
 window.onload = function() {
     try{
-    monPanier.chargerPanier().then(function(res) {
+        chargerPanierHtml();
 
-    if(res.length >0)
-    {
-        for (let article in res) {
-            createCardProduit(res[article]);
-        };
-    }
-
-    creerTotal();
-
-    var btn = document.querySelector(".btn-validerpanier");
-    btn.addEventListener ("click", validerPanier);
+        var btnvalide = document.querySelector(".btn-validerpanier");
+        btnvalide.addEventListener ("click", validerPanier);
         
-    });
-}
-catch(ex){console.log(ex);}
+        var btnvide = document.querySelector(".btn-viderpanier");
+        btnvide.addEventListener ("click", viderPanier);
+
+
+    }
+    catch(ex){
+        console.log(ex);
+    }
 };
 
+//************************
+// Charge le panier dans la case panier de
+//************************
 
+function chargerPanierHtml(){
+    monPanier.chargerPanier().then(function(res) {
+        // on vide le div avant de le remplir
+        var carddeck = document.querySelector("#grille_produits");
+        carddeck.innerHTML ="";
 
+        if(res.length >0)
+        {
+            for (let article in res) {
+                createCardProduit(res[article]);
+            };
+        }
+    });
+    
+    creerTotal();
+}
 
 //************************
 // Affiche le récap de commande dans le DOM
@@ -40,6 +54,7 @@ catch(ex){console.log(ex);}
 
 function createCardProduit(article)
 {   
+    
     // Card
     var card = document.createElement("article");
     card.classList.add("card","mb-4");
@@ -104,7 +119,6 @@ async function creerTotal() {
 
 async function  validerPanier() {
 
-console.log("debut validerpanier");
     var form = document.querySelector(".formDestinataire");
     var nom = document.querySelector("#Nom");
 
@@ -113,12 +127,9 @@ console.log("debut validerpanier");
     }
     else
     {   
-        console.log("avant getInfosClient");
         var contact =  getInfosClient();
-        console.log("avant chargerIds");
         const products = await monPanier.chargerIds();
-        console.log(products);
-        console.log(products.length);
+
         if(products.length > 0)
         {
             var  jsonbody = {contact,products,};    
@@ -142,6 +153,12 @@ console.log("debut validerpanier");
             alert("Votre panier est vide.");
         }
     }
+}
+
+async function viderPanier(){
+    await monPanier.viderPanier();
+
+    chargerPanierHtml();
 }
 
 
