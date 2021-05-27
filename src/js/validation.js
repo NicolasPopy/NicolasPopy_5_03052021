@@ -94,10 +94,7 @@ function createCardProduit(article)
     card.appendChild(cardhorizontal);
 
     var carddeck = document.querySelector("#grille_produits");
-    carddeck.appendChild(card);
-
-
-
+    carddeck.appendChild(card)
 }
 
 
