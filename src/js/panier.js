@@ -4,13 +4,20 @@
 
 export async function chargerPanier()
 {
-    if(localStorage.getItem('panier') != null)
-    {
-        return JSON.parse(localStorage.getItem("panier"));
+    try{
+        if(localStorage.getItem('panier') != null)
+        {
+            return JSON.parse(localStorage.getItem("panier"));
+        }
+        else
+        {
+            var x = new Array(0);
+            return x;
+        }
+
     }
-    else
-    {
-        return new Array(0);
+    catch(ex){
+        console.log(ex);
     }
 }
 
@@ -56,14 +63,18 @@ export async function viderPanier()
 //**********************
 
 export async function chargerIds(){
-    var tabid = [];
-    var panier = await chargerPanier();
+    try{
+        var tabid = [];
+        var panier = await chargerPanier();
 
-    for (let prod in panier) {
-        tabid.push(panier[prod]._id);
+        for (let prod in panier) {
+            tabid.push(panier[prod]._id);
+        }
+        return tabid;
     }
-    console.log("retour chargerid");
-    return tabid;
+    catch(ex){
+        console.log(ex);
+    }
 }
 
 

@@ -11,6 +11,7 @@ var total = 0;
 //************************
 
 window.onload = function() {
+    try{
     monPanier.chargerPanier().then(function(res) {
 
     if(res.length >0)
@@ -20,9 +21,14 @@ window.onload = function() {
         };
     }
 
-        creerTotal();
+    creerTotal();
+
+    var btn = document.querySelector(".btn-validerpanier");
+    btn.addEventListener ("click", validerPanier);
         
     });
+}
+catch(ex){console.log(ex);}
 };
 
 
@@ -75,8 +81,7 @@ function createCardProduit(article)
     var carddeck = document.querySelector("#grille_produits");
     carddeck.appendChild(card);
 
-    var btn = document.querySelector(".btn-validerpanier");
-    btn.addEventListener ("click", validerPanier);
+
 
 }
 
@@ -99,7 +104,7 @@ async function creerTotal() {
 
 async function  validerPanier() {
 
-
+console.log("debut validerpanier");
     var form = document.querySelector(".formDestinataire");
     var nom = document.querySelector("#Nom");
 
@@ -108,10 +113,15 @@ async function  validerPanier() {
     }
     else
     {   
+        console.log("avant getInfosClient");
         var contact =  getInfosClient();
+        console.log("avant chargerIds");
         const products = await monPanier.chargerIds();
-        var  jsonbody = {contact,products,};
-    
+        console.log(products);
+        console.log(products.length);
+        if(products.length > 0)
+        {
+            var  jsonbody = {contact,products,};    
 
             var ret = await fetch("http://localhost:3000/api/cameras/order", {
                 method: "POST",
@@ -126,6 +136,11 @@ async function  validerPanier() {
             var reponse = await ret.json();
 
             redirectionConfirmation(reponse.orderId);
+        }
+        else
+        {
+            alert("Votre panier est vide.");
+        }
     }
 }
 

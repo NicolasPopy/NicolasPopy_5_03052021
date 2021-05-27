@@ -101,7 +101,6 @@ async function loadpanier(loadpanier) {
   panierliste.innerHTML='';
 
   var panier = await monPanier.chargerPanier();
-  console.log(panier);
   for (let prod in panier) {
     ajouterlipanier(panier[prod]);
   }
