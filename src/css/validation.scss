@@ -90,19 +90,24 @@ main{
     width:35%;
 }
 
+.btn-viderpanier{
+    font-size: 1.2em;
+    width:35%;
+}
+
 
 //####################
 //card du panier
 //####################
 
 .card-body{
-     position: relative;
+    position: relative;
 
-     & h3{
-         position: absolute;               
-         top: 50%;                        
-         transform: translate(0, -50%) ;
-     }
+    & h3{
+        position: absolute;               
+        top: 50%;                        
+        transform: translate(0, -50%) ;
+    }
 }
 
 .card-footer{
@@ -110,11 +115,11 @@ main{
     background-color: #D7DBDD;
     padding: 0.5em 0.5em;
 
-     & strong{
-         position: absolute;               
-         top: 50%;                        
-         transform: translate(0, -50%) ;
-     }
+    & strong{
+        position: absolute;               
+        top: 50%;                        
+        transform: translate(0, -50%) ;
+    }
 }
 
 .card-horizontal{

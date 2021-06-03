@@ -3,7 +3,7 @@ main{
 
     width: 70%;
 
-    grid-template-rows: 24.5% 30% 30% 15.5%;
+    grid-template-rows: 22% 35.5% 22.5% 20%;
     grid-template-columns: 50% 25% 25%;
 
     grid-template-areas: "photo titre titre"
@@ -14,12 +14,13 @@ main{
     border:1px solid black; 
 }
 
- @media screen and (max-width: 992px) {
+@media screen and (max-width: 992px) {
     main{
         width: 90%;
+        font-size: 180%;
     }
 
- }
+}
 
 
 
@@ -28,7 +29,7 @@ main{
     width:100%;
 
     & h1{
-        font-size: 2.6em;
+        font-size: 2.5em;
         line-height: 2em;
     }
     
@@ -60,8 +61,13 @@ main{
     grid-area: description;
 
     & p{
-        font-size: 1.4em;
+        font-size: 1.2em;
+        overflow-wrap: anywhere;
     }
+}
+
+.form-select{
+    font-size: 1.2em;
 }
 
 #btn-panier{
@@ -73,7 +79,7 @@ main{
 }
 
 strong{
-    line-height:2em;
+    line-height:3em;
     font-size: 1.5em;
 }
 
@@ -98,11 +104,11 @@ strong{
 }
 
 
- @media screen and (max-width: 992px) {
-    #panier{
-        width: 35%;
-        align-self:center;
-        font-size: 200%;
-    }
+@media screen and (max-width: 992px) {
+#panier{
+    width: 90%;
+    align-self:center;
+    font-size: 300%;
+}
 
- }
+}

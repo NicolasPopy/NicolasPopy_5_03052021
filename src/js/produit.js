@@ -121,7 +121,7 @@ async function viderPanier(){
 function ajouterlipanier(prod) {
   var panierliste = document.querySelector("#panierliste");
   var liproduit = document.createElement("li");
-  liproduit.classList.add("list-group-item","bg-light","mx-4","my-2","py-4","py-lg-1");
+  liproduit.classList.add("list-group-item","bg-light","mx-4","my-3","py-5","py-lg-1");
 
   liproduit.innerHTML = prod.name +" qté : " + prod.qte;
   panierliste.appendChild(liproduit);
