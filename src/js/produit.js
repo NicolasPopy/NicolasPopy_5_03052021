@@ -70,14 +70,12 @@ function afficheProduit(prod){
       //Affiche bouton
       var btn = document.querySelector(".btn-panier");
       btn.addEventListener ("click", ajouterPanier);
-
       
       var btnvalider = document.querySelector("#bouton_valider");
       btnvalider.addEventListener ("click", redirectionValidation );
 
-
-        var btnvider = document.querySelector("#bouton_vider");
-        btnvider.addEventListener ("click", viderPanier);
+      var btnvider = document.querySelector("#bouton_vider");
+      btnvider.addEventListener ("click", viderPanier);
 
     }catch(ex)
     {
@@ -95,7 +93,7 @@ function redirectionValidation()
 // Panier Aside
 //**************
 
-
+// Charge le panier dans l'aside
 async function loadpanier(loadpanier) {
   var panierliste = document.querySelector("#panierliste");
   panierliste.innerHTML='';
@@ -104,20 +102,21 @@ async function loadpanier(loadpanier) {
   for (let prod in panier) {
     ajouterlipanier(panier[prod]);
   }
-
 }
 
+// Ajoute l'élement dans le panier
 async function ajouterPanier(){ 
     await monPanier.ajouterElementPanier(produit, true);
     loadpanier();
 }
 
+// vide le panier
 async function viderPanier(){ 
   await monPanier.viderPanier();
   loadpanier();
 }
 
-
+// ajoute une ligne dans la liste aside
 function ajouterlipanier(prod) {
   var panierliste = document.querySelector("#panierliste");
   var liproduit = document.createElement("li");

@@ -1,12 +1,9 @@
 
-
-
 #grille_produits{
     $grid-gutter-width: 10.5rem;
     }
     
     .card{
-       /*  height: 400px; */
         margin-bottom: 2rem;
         display:grid;
         grid-template-columns: 1;
@@ -15,8 +12,7 @@
                             "texte"
                             "prix";
 
-        font-size: 1vw;
-        
+        font-size: 1vw;        
     
         & img {
             grid-area: photo;
@@ -26,8 +22,7 @@
             height:100%;
         }     
 
-        & h2{
-           
+        & h2{           
             font-size: 1em;
         }
     

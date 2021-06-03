@@ -138,11 +138,9 @@ async function  validerPanier() {
                     'Content-Type': 'application/json' 
                 },
                 body: JSON.stringify(jsonbody)
-            })
-            
+            })            
 
             var reponse = await ret.json();
-
             redirectionConfirmation(reponse.orderId);
         }
         else
@@ -154,7 +152,6 @@ async function  validerPanier() {
 
 async function viderPanier(){
     await monPanier.viderPanier();
-
     chargerPanierHtml();
 }
 
@@ -174,7 +171,6 @@ function checkForm(){
     message += checkTextInput(prenom) + checkTextInput(nom) + checkTextInput(adresse) + checkTextInput(ville) + checkEmail(email);
 
     return message;
-
 }
 
 function checkTextInput(inp){
@@ -213,7 +209,6 @@ function checkEmail(inp){
 //************************
 
 function getInfosClient() {
-
     var nom = document.querySelector("#Nom").value;
     var prenom = document.querySelector("#Prenom").value;
     var adresse = document.querySelector("#Adresse").value;
