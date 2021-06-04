@@ -181,7 +181,7 @@ function checkTextInput(inp){
     else
     {
         if(inp.checkValidity()==false){
-            return "- Le champ " + inp.name + " n'utilise pas de caractères alphabétique ou spéciaux autorisés ( ,.'-).\n";
+            return "- Le champ " + inp.name + " n'utilise pas de caractères alphabétiques ou spéciaux autorisés ( ,.'-).\n";
         }
         else
             return "";
