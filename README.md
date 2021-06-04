@@ -27,12 +27,8 @@ NPM
 `npm start`
 
 ### Front-end
-1) Placez-vous à la racine
-2) Lancez la commande  
-`npm install`
-3) Lancez la commande
-`npm start`
-4) Ouvrez cette url pour accéder au site web http://localhost:8080/
+1) Lancez le fichier Index.html avec Live Server
+
 
 
 
